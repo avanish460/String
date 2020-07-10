@@ -1,0 +1,75 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the alternate function below.
+    static int alternate(String s) {
+
+
+               int maxPattern = 0;
+        
+        if(s.length() == 1)//Edge case where length is 1
+        {
+          return maxPattern;
+           
+        }
+        
+        //Loop through all letter pairs
+        for(int i = 0; i < 26; i++)
+        {
+            nextLetter:
+            for(int j = i + 1; j < 26; j++)
+            {
+                char one = (char) ('a' + i); //First char in pair
+                char two = (char) ('a' + j); //Second char in pair
+                char lastSeen = '\u0000';
+                int patternLength = 0;
+                
+                for(char letter : s.toCharArray())
+                {
+                    if(letter == one || letter == two)
+                    {
+                        if(letter == lastSeen)//Duplicate found
+                        {
+                            continue nextLetter;
+                        }
+                        //Not a duplicate
+                        patternLength++;
+                        lastSeen = letter;
+                    }
+                }//for char : s
+                
+                maxPattern = (patternLength > maxPattern) ? patternLength : maxPattern; //Keep a running max
+                
+            }//for j
+        }//for i
+        
+       return maxPattern;
+         
+    
+   
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int l = Integer.parseInt(bufferedReader.readLine().trim());
+
+        String s = bufferedReader.readLine();
+
+        int result = alternate(s);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
