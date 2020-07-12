@@ -1,0 +1,117 @@
+package basicProblems;
+
+import java.util.Scanner;
+
+public class CaesarCipher {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String s = sc.next();
+		int k = sc.nextInt() % 26;
+		System.out.print(k);
+		String N_s = "";
+		for(int i=0; i<n; i++) {
+		
+		N_s = N_s + updatedstring(s.charAt(i),  k);
+		
+		}
+		System.out.println(N_s);
+	}
+	
+	static char updatedstring(char ch, int  k) {
+		
+		if(Character.isLetter(ch)) {
+			int i = (int)ch;
+			i = i+k;
+			
+			if(Character.isUpperCase(ch)) {
+				
+				if(i>90) {
+					int num = (int)ch + k;
+					i = num -26;
+				}
+				
+			}else if(i>122) {
+				int num = (int)ch + k;
+				i = num -26;
+			}
+			
+			return (char)i;
+		}
+		return ch;
+	}
+
+}
+                           OR 
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the caesarCipher function below.
+    static String caesarCipher(String s, int k) {
+
+   String N_s = "";
+   k = k % 26;
+        for(int j=0; j<s.length(); j++){
+            char ch = s.charAt(j);
+          if(Character.isLetter(ch)) {
+            int i = (int)ch;
+            i = i+k;
+            
+            if(Character.isUpperCase(ch)) {
+                
+                if(i>90) {
+                    int num = (int)ch + k;
+                    i = num -26;
+                }
+                
+            }else if(i>122) {
+                int num = (int)ch + k;
+                i = num -26;
+            }
+            
+            N_s = N_s +(char)i;
+        }
+        if(!Character.isLetter(ch)){
+
+            N_s = N_s + ch;
+        }
+    }
+     
+        return N_s;
+
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        String s = scanner.nextLine();
+
+        int k = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        String result = caesarCipher(s, k);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}
