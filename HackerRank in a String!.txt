@@ -1,0 +1,34 @@
+package basicProblems;
+
+import java.util.Scanner;
+
+public class CaesarCipher {
+
+	public static void main(String[] args) {
+		
+      Scanner sc = new Scanner(System.in);
+            String h = "hackerrank";
+           String s = sc.next();
+      
+      
+     if(h.length()>s.length()) {
+       System.out.println("No");
+     }
+     int j =0;
+     for(int i=0; i<s.length(); i++) {
+    		  if(h.charAt(j) == s.charAt(i) && j < h.length()) {
+    			 
+    			 j++;
+    	     }
+    	  }
+     if(j == h.length()) {
+    	 System.out.println("Yes");
+     }else {
+    	 System.out.println("No");
+	  }
+     
+     
+      }
+	
+         
+	}
