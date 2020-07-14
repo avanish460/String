@@ -1,0 +1,17 @@
+		                      Topic : Website Design
+
+Here are 10 topic which is very important for any website designer.
+which is given below-
+
+1. How your website look like that means which type of colours, images
+   etc.
+2. Make your website logo attractive.
+3. Make your website users friendly like navigate your site etc.
+4. Write great title of your website.
+5. Write relevant content on your website.
+6. Use alt tag for improve your web images.
+7. Make your website mobile friendly(responsive website).
+8. Increase your website loading speed.
+9. Give internal links of your webpages in your website.
+10. Use google analytics and google tools for improve your website
+     performace.  			
