@@ -1,0 +1,44 @@
+package basicProblems;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class CaesarCipher {
+
+	public static void main(String[] args) {
+		
+		//step1:
+      Scanner sc = new Scanner(System.in);//taking user input;
+      Set<Character> set = new HashSet<>();
+            String h = "abcdefghijklmnopqrstuvwxyz";
+           Set<Character>set2 = new HashSet<>();
+           for(int i=0; i<h.length(); i++) {
+        	   set2.add(h.charAt(i));
+           }//adding string h in set2;
+           
+           //Step2:
+           String s = sc.nextLine();//taking second string input from user;
+           String replaced = s.replace(" ", "").toLowerCase();//modified our string s;
+           char [] c = replaced.toCharArray();//change string s into char array;
+          Arrays.sort(c);
+          for(int i=0; i<c.length; i++) {
+        	  set.add(c[i]);
+         }//adding string s into set;
+        
+          //step3:
+          String ss = set.toString();//changing set into string ;
+          String sss = set2.toString();//changing set2 into string;
+         
+          //checking pangram and not pangram;
+          if(sss.length() == ss.length()) {
+        	  System.out.println("pangram");
+          }else {
+          System.out.println("not pangram");
+          }
+    
+	 }
+}
