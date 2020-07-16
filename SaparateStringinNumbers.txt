@@ -1,0 +1,39 @@
+package basicProblems;
+import java.util.Scanner;
+public class CaesarCipher {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		 int queries = sc.nextInt();
+        while(queries -->0) {
+        		
+        		String s = sc.next();
+        	 saparatestring(s);
+        	}
+         
+    }
+	
+	static void saparatestring(String s) {
+		
+		String ss ="";
+		boolean isvalid =false;
+		for(int i=1; i<=s.length()/2; i++) {
+			
+			ss = s.substring(0,i);
+			Long num = Long.parseLong(ss);
+			String isvalidstring =ss;
+			while(isvalidstring.length()<s.length()) {
+				isvalidstring += Long.toString(++num);
+				
+			}
+			if(isvalidstring.equals(s)) {
+				isvalid = true;
+				break;
+			}
+		}
+		
+	System.out.println(isvalid ? "YES"+" "+ss :"NO");
+		
+	}
+ }
