@@ -1,0 +1,62 @@
+package basicProblems;
+import java.util.Scanner;
+public class CaesarCipher {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		 int queries = sc.nextInt();
+        while(queries -->0) {
+        		
+        		String s = sc.next();
+        	 funnystring(s);
+        	}
+         
+    }
+	
+	static void funnystring(String s) {
+		
+		int a[] = new int[s.length()];
+		int aa[] = new int[s.length()];
+		
+		String ss = "Not Funny";
+		for(int i=0; i<s.length(); i++) {
+			
+			a[i] = (int) s.charAt(i);
+			
+			System.out.println(a[i]);
+			}
+		System.out.println();
+		for(int i=s.length()-1; i>=0; i--) {
+			aa[i] = (int) s.charAt(i);
+			System.out.println(aa[i]);
+		}
+		
+		int aaa[] = new int[a.length-1];
+		for(int i=0; i<a.length-1; i++) {
+						int M1 = Math.max(a[i],a[i+1]);
+						int m1 = Math.min(a[i], a[i+1]);
+						aaa[i] = M1-m1;
+						
+		}
+		
+		int aaaa[] = new int[aa.length-1];
+		for(int i=aa.length-1; i>0; i--) {
+						int M2 = Math.max(aa[i],aa[i-1]);
+						int m2 = Math.min(aa[i], aa[i-1]);
+						aaaa[aa.length-1-i] = M2-m2;
+		
+		}
+		 
+
+		for(int i=0; i<aaa.length; i++) {
+		if(aaa[i]==aaaa[i]) {
+			ss="Funny";
+		}else {
+			ss="Not Funny";
+			break;
+		}
+		}
+		System.out.println(ss);
+	}
+ }
